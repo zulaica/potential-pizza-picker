@@ -1,0 +1,11 @@
+{
+  "name": "bloom-filter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Zulaica"
+}
