@@ -1,8 +1,7 @@
 import stringToHash from "./utilities/hash.mjs";
+import CONSTANTS from "./helpers/constants.mjs";
 
-const VECTOR_LENGTH = 217;
-const OFFSET = 32;
-const HASH_COUNT = 6;
+const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = CONSTANTS;
 
 const indexesFromHashes = (
   string,
