@@ -1,7 +1,8 @@
 import BloomFilter from "./BloomFilter/index.mjs";
-import { DEFAULTS, PIZZAS } from "./constants/index.mjs";
+import { DEFAULTS, INGREDIENTS, PIZZAS } from "./constants/index.mjs";
 
 const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;
+let results = [];
 
 const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
   const bloomFilter = new BloomFilter(HASH_COUNT, OFFSET, VECTOR_LENGTH);
@@ -15,14 +16,14 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
 });
 
 const pizzaHasIngredient = (string) => {
-  const results = [];
+  results = [];
 
   filteredPizzas.map(({ bloomFilter }) => {
     results.push(bloomFilter.test(string));
   });
-
-  return results;
 };
 
-console.info(pizzaHasIngredient("Pepperoni"));
-console.info(pizzaHasIngredient("Roasted Garlic"));
+for (let i = 0; i < INGREDIENTS.length; i++) {
+  pizzaHasIngredient(INGREDIENTS[i]);
+  console.info(INGREDIENTS[i], results);
+}
