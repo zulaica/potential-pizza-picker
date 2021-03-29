@@ -9,16 +9,14 @@ const BloomFilter = class {
   }
 
   add(string) {
-    const indexes = indexesFromHashes(
+    indexesFromHashes(
       string,
       this.hashCount,
       this.offset,
       this.vectorLength
-    );
-
-    for (let i = 0; i < indexes.length; i++) {
-      this.bits[indexes[i]] = 1;
-    }
+    ).forEach((index) => {
+      this.bits[index] = 1;
+    });
 
     return this.bits;
   }
