@@ -1,14 +1,6 @@
 import { stringToHash } from "./index.mjs";
-import { DEFAULTS } from "../constants/index.mjs";
 
-const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;
-
-export const indexesFromHashes = (
-  string,
-  hashCount = HASH_COUNT,
-  offset = OFFSET,
-  vectorLength = VECTOR_LENGTH
-) => {
+export const indexesFromHashes = (string, hashCount, offset, vectorLength) => {
   const indexes = [];
 
   for (let i = 1; i <= hashCount; i++) {

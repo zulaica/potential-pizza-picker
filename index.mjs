@@ -1,10 +1,10 @@
 import BloomFilter from "./BloomFilter.mjs";
 import { DEFAULTS, PIZZAS } from "./constants/index.mjs";
 
-const { VECTOR_LENGTH } = DEFAULTS;
+const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;
 
 const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
-  const bloomFilter = new BloomFilter(VECTOR_LENGTH);
+  const bloomFilter = new BloomFilter(HASH_COUNT, OFFSET, VECTOR_LENGTH);
 
   ingredients.map((ingredient) => {
     bloomFilter.add(ingredient);
