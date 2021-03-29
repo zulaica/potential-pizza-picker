@@ -1,4 +1,4 @@
-import BloomFilter from "./BloomFilter.mjs";
+import BloomFilter from "./BloomFilter/index.mjs";
 import { DEFAULTS, PIZZAS } from "./constants/index.mjs";
 
 const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;

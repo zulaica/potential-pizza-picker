@@ -1,10 +1,9 @@
 {
-  "name": "bloom-filter",
+  "name": "potential-pizza-picker",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.mjs",
+    "start": "node scripts/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Zulaica"
