@@ -9,7 +9,6 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
 
   ingredients.map((ingredient) => {
     bloomFilter.add(ingredient);
-    return;
   });
 
   return { name, bloomFilter };
