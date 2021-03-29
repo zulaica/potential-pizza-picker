@@ -23,4 +23,24 @@ export const PIZZAS = Object.freeze([
       "Tomatoes",
     ],
   },
+  {
+    name: "The Daffy Duck",
+    ingredients: [
+      "Basil",
+      "Black Olives",
+      "Green Onions",
+      "Green Peppers",
+      "Mushrooms",
+    ],
+  },
+  {
+    name: "The Foghorn Leghorn",
+    ingredients: [
+      "Bacon",
+      "Chicken",
+      "Crushed Garlic",
+      "Red Onions",
+      "Tomatoes",
+    ],
+  },
 ]);
