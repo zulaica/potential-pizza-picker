@@ -14,5 +14,15 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
   return { name, bloomFilter };
 });
 
-console.info(filteredPizzas[0].bloomFilter.test("Pepperoni"));
-console.info(filteredPizzas[0].bloomFilter.test("Watermelon"));
+const pizzaHasIngredient = (string) => {
+  const results = [];
+
+  filteredPizzas.map(({ bloomFilter }) => {
+    results.push(bloomFilter.test(string));
+  });
+
+  return results;
+};
+
+console.info(pizzaHasIngredient("Pepperoni"));
+console.info(pizzaHasIngredient("Roasted Garlic"));
