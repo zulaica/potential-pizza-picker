@@ -1,5 +1,5 @@
 import { indexesFromHashes } from "./utilities/index.mjs";
-import { DEFAULTS } from "./constants/index.mjs";
+import { DEFAULTS, PIZZAS } from "./constants/index.mjs";
 
 const { VECTOR_LENGTH } = DEFAULTS;
 
@@ -19,7 +19,16 @@ const BloomFilter = class {
   }
 };
 
-const bf = new BloomFilter(VECTOR_LENGTH);
+const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
+  const bf = new BloomFilter(VECTOR_LENGTH);
 
-console.info(bf.bits);
-console.info(bf.add("Pepperoni"));
+  ingredients.map((ingredient) => {
+    bf.add(ingredient);
+    return;
+  });
+
+  const filteredIngredients = bf.bits;
+  return { name, filteredIngredients };
+});
+
+console.info(filteredPizzas);
