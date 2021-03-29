@@ -14,7 +14,7 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
   return { name, bloomFilter };
 });
 
-const pizzaHasIngredient = (string) => {
+const testIngredient = (string) => {
   results = [];
 
   filteredPizzas.map(({ bloomFilter }) => {
@@ -23,6 +23,6 @@ const pizzaHasIngredient = (string) => {
 };
 
 for (let i = 0; i < INGREDIENTS.length; i++) {
-  pizzaHasIngredient(INGREDIENTS[i]);
+  testIngredient(INGREDIENTS[i]);
   console.info(INGREDIENTS[i], results);
 }
