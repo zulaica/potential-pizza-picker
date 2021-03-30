@@ -45,7 +45,7 @@ h1 {
   letter-spacing: 0.25rem;
 }
 
-h1::before {
+header h1::before {
   content: "\01F355";
   display: inline-block;
   margin-right: 0.125rem;
@@ -71,14 +71,26 @@ label {
   column-gap: 1rem;
   grid-template-columns: 1fr 1fr;
   grid-area: pizzaMenu;
-  padding: 1rem;
+  padding: 0 1rem;
   background: var(--green-md);
 }
 
-#pizzas {
+#pizza-list {
+  padding: 1rem 0 0;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  list-style: none;
+  border-top: 2px solid #648070;
+}
+
+h2 {
+  color: #fff;
+  margin: 4.5rem 0;
+  font-size: 1rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
 }
 
 button,
@@ -97,6 +109,7 @@ select {
 
 button {
   padding: 0.5rem 1.25rem;
+  width: 100%;
   border: 1px solid transparent;
   text-align: left;
   transition: all 0.125s ease-in-out;

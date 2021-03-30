@@ -24,7 +24,7 @@ const testIngredient = (string) => {
 
 if (typeof document !== "undefined") {
   const ingredientSelect = document.querySelector("#ingredient-select");
-  const pizzas = document.querySelector("#pizzas");
+  const pizzaList = document.querySelector("#pizza-list");
 
   const updateMenu = () =>
     document.querySelectorAll("button").forEach((item, index) => {
@@ -38,9 +38,11 @@ if (typeof document !== "undefined") {
   });
 
   PIZZAS.forEach((pizza) => {
+    const li = document.createElement("li");
     const button = document.createElement("button");
     button.textContent = pizza.name;
-    pizzas.appendChild(button);
+    li.appendChild(button);
+    pizzaList.appendChild(li);
   });
 
   document.addEventListener("load", updateMenu());
