@@ -97,15 +97,16 @@ select {
 button {
   padding: 0.5rem 1.25rem;
   border: 1px solid transparent;
+  text-align: left;
   transition: all 0.125s ease-in-out;
 }
 
 button:not([disabled]):hover,
 button:not([disabled]):active,
 button:not([disabled]):focus {
-  background: #e0eed7;
+  transform: scale(1.03125);
 }
 
 button:disabled {
-  background: #f0dcdf;
+  opacity: 0.5;
 }
