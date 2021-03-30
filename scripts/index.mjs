@@ -18,7 +18,7 @@ const toppingSelect = document.querySelector("#topping-select");
 const pizzaList = document.querySelector("#pizza-list");
 const toppingList = document.querySelector("#topping-list");
 
-const testtopping = (string) => {
+const testTopping = (string) => {
   results = [];
 
   filteredPizzas.map(({ bloomFilter }) => {
@@ -37,12 +37,12 @@ const clearSelectedPizza = () => {
     : null;
 };
 
-const cleartoppingList = () => {
+const clearToppingList = () => {
   toppingList.querySelectorAll("*").forEach((item) => item.remove());
 };
 
-const updatetoppingList = (index) => {
-  cleartoppingList();
+const updateToppingList = (index) => {
+  clearToppingList();
 
   PIZZAS[index].toppings.forEach((topping) => {
     const li = document.createElement("li");
@@ -69,7 +69,7 @@ PIZZAS.forEach((pizza, index) => {
   label.htmlFor = `${pizza.name}`;
 
   input.addEventListener("click", () => {
-    updatetoppingList(index);
+    updateToppingList(index);
   });
 
   li.appendChild(input);
@@ -81,7 +81,7 @@ document.addEventListener("load", updatePizzaList());
 
 toppingSelect.addEventListener("change", () => {
   clearSelectedPizza();
-  cleartoppingList();
-  testtopping(toppingSelect.value);
+  clearToppingList();
+  testTopping(toppingSelect.value);
   updatePizzaList();
 });
