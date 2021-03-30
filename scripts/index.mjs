@@ -1,24 +1,24 @@
 import BloomFilter from "./BloomFilter/index.mjs";
-import { DEFAULTS, INGREDIENTS, PIZZAS } from "./constants/index.mjs";
+import { DEFAULTS, TOPPINGS, PIZZAS } from "./constants/index.mjs";
 
 const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;
 let results = [...Array(PIZZAS.length).fill(true)];
 
-const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
+const filteredPizzas = PIZZAS.map(({ name, toppings }) => {
   const bloomFilter = new BloomFilter(HASH_COUNT, OFFSET, VECTOR_LENGTH);
 
-  ingredients.map((ingredient) => {
-    bloomFilter.add(ingredient);
+  toppings.map((topping) => {
+    bloomFilter.add(topping);
   });
 
   return { name, bloomFilter };
 });
 
-const ingredientSelect = document.querySelector("#ingredient-select");
+const toppingSelect = document.querySelector("#topping-select");
 const pizzaList = document.querySelector("#pizza-list");
-const ingredientList = document.querySelector("#ingredient-list");
+const toppingList = document.querySelector("#topping-list");
 
-const testIngredient = (string) => {
+const testtopping = (string) => {
   results = [];
 
   filteredPizzas.map(({ bloomFilter }) => {
@@ -31,24 +31,24 @@ const updatePizzaList = () =>
     item.disabled = results[index];
   });
 
-const clearIngredientList = () => {
-  ingredientList.querySelectorAll("*").forEach((item) => item.remove());
+const cleartoppingList = () => {
+  toppingList.querySelectorAll("*").forEach((item) => item.remove());
 };
 
-const updateIngredientList = (index) => {
-  clearIngredientList();
+const updatetoppingList = (index) => {
+  cleartoppingList();
 
-  PIZZAS[index].ingredients.forEach((ingredient) => {
+  PIZZAS[index].toppings.forEach((topping) => {
     const li = document.createElement("li");
-    li.textContent = ingredient;
-    ingredientList.appendChild(li);
+    li.textContent = topping;
+    toppingList.appendChild(li);
   });
 };
 
-INGREDIENTS.forEach((ingredient) => {
+TOPPINGS.forEach((topping) => {
   const option = document.createElement("option");
-  option.textContent = ingredient;
-  ingredientSelect.appendChild(option);
+  option.textContent = topping;
+  toppingSelect.appendChild(option);
 });
 
 PIZZAS.forEach((pizza, index) => {
@@ -58,7 +58,7 @@ PIZZAS.forEach((pizza, index) => {
   button.textContent = pizza.name;
   button.dataset.id = index;
   button.addEventListener("click", () => {
-    updateIngredientList(index);
+    updatetoppingList(index);
   });
 
   li.appendChild(button);
@@ -67,8 +67,8 @@ PIZZAS.forEach((pizza, index) => {
 
 document.addEventListener("load", updatePizzaList());
 
-ingredientSelect.addEventListener("change", () => {
-  clearIngredientList();
-  testIngredient(ingredientSelect.value);
+toppingSelect.addEventListener("change", () => {
+  cleartoppingList();
+  testtopping(toppingSelect.value);
   updatePizzaList();
 });

@@ -3,7 +3,7 @@
 export const PIZZAS = Object.freeze([
   {
     name: "The Yosemite Sam",
-    ingredients: [
+    toppings: [
       "Green Peppers",
       "Jalapeños",
       "Pepperoni",
@@ -13,21 +13,15 @@ export const PIZZAS = Object.freeze([
   },
   {
     name: "The Porky Pig",
-    ingredients: ["Bacon", "Canadian Bacon", "Pepperoni", "Salami", "Sausage"],
+    toppings: ["Bacon", "Canadian Bacon", "Pepperoni", "Salami", "Sausage"],
   },
   {
     name: "The Bugs Bunny",
-    ingredients: [
-      "Basil",
-      "Fresh Mozzarella",
-      "Ricotta",
-      "Spinach",
-      "Tomatoes",
-    ],
+    toppings: ["Basil", "Fresh Mozzarella", "Ricotta", "Spinach", "Tomatoes"],
   },
   {
     name: "The Daffy Duck",
-    ingredients: [
+    toppings: [
       "Basil",
       "Black Olives",
       "Green Onions",
@@ -37,17 +31,11 @@ export const PIZZAS = Object.freeze([
   },
   {
     name: "The Foghorn Leghorn",
-    ingredients: [
-      "Bacon",
-      "Chicken",
-      "Crushed Garlic",
-      "Red Onions",
-      "Tomatoes",
-    ],
+    toppings: ["Bacon", "Chicken", "Crushed Garlic", "Red Onions", "Tomatoes"],
   },
   {
     name: "The Speedy Gonzales",
-    ingredients: [
+    toppings: [
       "Crushed Garlic",
       "Goat Cheese",
       "Jalapeños",
@@ -57,7 +45,7 @@ export const PIZZAS = Object.freeze([
   },
   {
     name: "The Elmer Fudd",
-    ingredients: [
+    toppings: [
       "Fresh Mozzarella",
       "Meatballs",
       "Ricotta",

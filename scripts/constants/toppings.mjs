@@ -1,4 +1,4 @@
-export const INGREDIENTS = Object.freeze([
+export const TOPPINGS = Object.freeze([
   "Bacon",
   "Basil",
   "Black Olives",

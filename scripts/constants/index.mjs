@@ -1,3 +1,3 @@
 export * from "./bloomFilter.mjs";
-export * from "./ingredients.mjs";
+export * from "./toppings.mjs";
 export * from "./pizzas.mjs";
