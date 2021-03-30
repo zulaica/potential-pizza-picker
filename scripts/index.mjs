@@ -2,7 +2,7 @@ import BloomFilter from "./BloomFilter/index.mjs";
 import { DEFAULTS, INGREDIENTS, PIZZAS } from "./constants/index.mjs";
 
 const { HASH_COUNT, OFFSET, VECTOR_LENGTH } = DEFAULTS;
-let results = [];
+let results = [...Array(PIZZAS.length).fill(true)];
 
 const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
   const bloomFilter = new BloomFilter(HASH_COUNT, OFFSET, VECTOR_LENGTH);
