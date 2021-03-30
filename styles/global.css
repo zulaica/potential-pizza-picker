@@ -1,44 +1,83 @@
 :root {
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --green-dk: #2f5542;
+  --green-md: #406e57;
+  --green-lt: #aebea3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 html {
   font-family: var(--font-family);
+  background: var(--green-dk);
 }
 
 body {
-  padding: 1rem;
+  display: grid;
+  column-gap: 1rem;
+  grid-template-areas:
+    "header pizzaMenu"
+    "ingredientSelector pizzaMenu";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
 }
 
-main {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-column-gap: 1rem;
+header {
+  margin: 2.55rem 1rem;
+  color: #fff;
 }
 
-#menu {
+h1 {
+  margin: 0;
+}
+
+#ingredient-selector {
+  margin: 0 1rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  color: #fff;
+  border-top: 2px solid var(--green-md);
+}
+
+#pizza-menu {
   display: grid;
+  column-gap: 1rem;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1rem;
+  grid-area: pizzaMenu;
   padding: 1rem;
-  border: 1px solid grey;
+  background: var(--green-md);
 }
 
 #pizzas {
-  display: grid;
-  grid-row-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 
 button,
 select {
   font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--green-dk);
   border-radius: 0.25rem;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
 }
 
 select {
-  padding: 0.25rem 1rem;
-  height: fit-content;
+  padding: 0.5rem 1rem;
+  border: 0;
 }
 
 button {
