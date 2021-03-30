@@ -37,6 +37,13 @@ if (typeof document !== "undefined") {
     button.textContent = pizza.name;
     pizzas.appendChild(button);
   });
+
+  ingredientSelect.addEventListener("change", () => {
+    testIngredient(ingredientSelect.value);
+    document.querySelectorAll("button").forEach((item, index) => {
+      item.disabled = results[index];
+    });
+  });
 } else {
   for (let i = 0; i < INGREDIENTS.length; i++) {
     testIngredient(INGREDIENTS[i]);
