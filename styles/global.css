@@ -145,3 +145,17 @@ input:not([disabled]) + label:focus {
 input:disabled + label {
   opacity: 0.5;
 }
+
+input + label::after {
+  content: "\2713";
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  font-weight: bold;
+  color: transparent;
+  transition: color 0.125s ease-in-out;
+}
+
+input:checked + label::after {
+  color: var(--color-secondary-dk);
+}

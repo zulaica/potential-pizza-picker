@@ -31,6 +31,12 @@ const updatePizzaList = () =>
     item.disabled = results[index];
   });
 
+const clearSelectedPizza = () => {
+  document.querySelector("input:checked")
+    ? (document.querySelector("input:checked").checked = false)
+    : null;
+};
+
 const cleartoppingList = () => {
   toppingList.querySelectorAll("*").forEach((item) => item.remove());
 };
@@ -74,6 +80,7 @@ PIZZAS.forEach((pizza, index) => {
 document.addEventListener("load", updatePizzaList());
 
 toppingSelect.addEventListener("change", () => {
+  clearSelectedPizza();
   cleartoppingList();
   testtopping(toppingSelect.value);
   updatePizzaList();
