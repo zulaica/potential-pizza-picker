@@ -22,6 +22,7 @@ body {
 html {
   font-family: var(--font-family);
   background: var(--color-primary-dk);
+  color: #fff;
 }
 
 body {
@@ -36,7 +37,6 @@ body {
 
 header {
   margin: 2.475rem 1rem;
-  color: #fff;
 }
 
 h1 {
@@ -58,7 +58,6 @@ header h1::before {
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  color: #fff;
   border-top: 2px solid var(--color-primary-lt);
 }
 
@@ -77,7 +76,6 @@ label {
 }
 
 h2 {
-  color: #fff;
   margin: 4.5rem 0;
   font-size: 1rem;
   font-weight: 100;
