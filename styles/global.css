@@ -33,22 +33,36 @@ body {
 }
 
 header {
-  margin: 2.55rem 1rem;
+  margin: 2.475rem 1rem;
   color: #fff;
 }
 
 h1 {
-  margin: 0;
+  margin: 0 -0.125rem 0 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+
+h1::before {
+  content: "\01F355";
+  display: inline-block;
+  margin-right: 0.125rem;
+  font-size: 4rem;
+  vertical-align: middle;
 }
 
 #ingredient-selector {
   margin: 0 1rem;
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 0.5625rem;
   color: #fff;
   border-top: 2px solid var(--green-md);
+}
+
+label {
+  padding: 1rem 0;
 }
 
 #pizza-menu {
