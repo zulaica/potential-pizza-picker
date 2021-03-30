@@ -1,4 +1,4 @@
-# Potential Pizza Picker
+# 🍕 Potential Pizza Picker
 
 A simple Bloom Filter implementation for indecisive pizza selection.
 
