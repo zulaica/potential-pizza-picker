@@ -26,6 +26,11 @@ if (typeof document !== "undefined") {
   const ingredientSelect = document.querySelector("#ingredient-select");
   const pizzas = document.querySelector("#pizzas");
 
+  const updateMenu = () =>
+    document.querySelectorAll("button").forEach((item, index) => {
+      item.disabled = results[index];
+    });
+
   INGREDIENTS.forEach((ingredient) => {
     const option = document.createElement("option");
     option.textContent = ingredient;
@@ -38,11 +43,11 @@ if (typeof document !== "undefined") {
     pizzas.appendChild(button);
   });
 
+  document.addEventListener("load", updateMenu());
+
   ingredientSelect.addEventListener("change", () => {
     testIngredient(ingredientSelect.value);
-    document.querySelectorAll("button").forEach((item, index) => {
-      item.disabled = results[index];
-    });
+    updateMenu();
   });
 } else {
   for (let i = 0; i < INGREDIENTS.length; i++) {
