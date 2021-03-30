@@ -76,15 +76,6 @@ label {
   background: var(--color-primary-lt);
 }
 
-#pizza-list {
-  padding: 1rem 0 0;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  list-style: none;
-  border-top: 2px solid var(--color-secondary-dk);
-}
-
 h2 {
   color: #fff;
   margin: 4.5rem 0;
@@ -92,6 +83,15 @@ h2 {
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
+}
+
+ul {
+  padding: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  list-style: none;
+  border-top: 2px solid var(--color-secondary-dk);
 }
 
 button,
