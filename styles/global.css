@@ -118,6 +118,7 @@ select {
 
 button {
   width: 100%;
+  background: #fff;
   border: 1px solid transparent;
   text-align: left;
   transition: all 0.125s ease-in-out;
