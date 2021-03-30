@@ -27,7 +27,7 @@ const testtopping = (string) => {
 };
 
 const updatePizzaList = () =>
-  document.querySelectorAll("button").forEach((item, index) => {
+  document.querySelectorAll("input").forEach((item, index) => {
     item.disabled = results[index];
   });
 
@@ -53,15 +53,21 @@ TOPPINGS.forEach((topping) => {
 
 PIZZAS.forEach((pizza, index) => {
   const li = document.createElement("li");
-  const button = document.createElement("button");
+  const input = document.createElement("input");
+  const label = document.createElement("label");
 
-  button.textContent = pizza.name;
-  button.dataset.id = index;
-  button.addEventListener("click", () => {
+  input.type = "radio";
+  input.name = "pizza";
+  input.id = `${pizza.name}`;
+  label.textContent = pizza.name;
+  label.htmlFor = `${pizza.name}`;
+
+  input.addEventListener("click", () => {
     updatetoppingList(index);
   });
 
-  li.appendChild(button);
+  li.appendChild(input);
+  li.appendChild(label);
   pizzaList.appendChild(li);
 });
 

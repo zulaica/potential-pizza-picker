@@ -36,7 +36,7 @@ body {
 }
 
 header {
-  margin: 2.475rem 1rem;
+  margin: 2.45rem 1rem;
 }
 
 h1 {
@@ -61,9 +61,22 @@ header h1::before {
   border-top: 2px solid var(--color-primary-lt);
 }
 
-label {
+#topping-selector label {
   margin: 1rem 0;
   padding: 0.5rem 0;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--color-primary-dk);
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: var(--box-shadow);
 }
 
 #pizza-menu {
@@ -93,44 +106,42 @@ ul {
 }
 
 #pizza-list li {
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
 #topping-list li {
   padding: 0.5rem 1.25rem;
-  border: 1px solid transparent;
   font-weight: 200;
 }
 
-button,
-select {
+input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input + label {
+  display: inline-block;
+  position: relative;
+  margin: 0;
   padding: 0.5rem 1rem;
-  font-family: var(--font-family);
-  font-size: 1rem;
-  color: var(--color-primary-dk);
-  border-radius: 0.25rem;
-}
-
-select {
-  border: 0;
-  box-shadow: var(--box-shadow);
-}
-
-button {
   width: 100%;
+  border-radius: 0.25rem;
   background: #fff;
-  border: 1px solid transparent;
+  color: var(--color-primary-dk);
+  white-space: nowrap;
   text-align: left;
   transition: all 0.125s ease-in-out;
 }
 
-button:not([disabled]):hover,
-button:not([disabled]):active,
-button:not([disabled]):focus {
+input:not([disabled]) + label:hover,
+input:not([disabled]) + label:active,
+input:not([disabled]) + label:focus {
   transform: scale(1.03125);
   box-shadow: var(--box-shadow);
 }
 
-button:disabled {
+input:disabled + label {
   opacity: 0.5;
 }
