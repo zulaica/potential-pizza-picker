@@ -22,7 +22,24 @@ const testIngredient = (string) => {
   });
 };
 
-for (let i = 0; i < INGREDIENTS.length; i++) {
-  testIngredient(INGREDIENTS[i]);
-  console.info(INGREDIENTS[i], results);
+if (typeof document !== "undefined") {
+  const ingredientSelect = document.querySelector("#ingredient-select");
+  const pizzas = document.querySelector("#pizzas");
+
+  INGREDIENTS.forEach((ingredient) => {
+    const option = document.createElement("option");
+    option.textContent = ingredient;
+    ingredientSelect.appendChild(option);
+  });
+
+  PIZZAS.forEach((pizza) => {
+    const button = document.createElement("button");
+    button.textContent = pizza.name;
+    pizzas.appendChild(button);
+  });
+} else {
+  for (let i = 0; i < INGREDIENTS.length; i++) {
+    testIngredient(INGREDIENTS[i]);
+    console.info(INGREDIENTS[i], results);
+  }
 }
