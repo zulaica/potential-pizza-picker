@@ -16,20 +16,7 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
 
 const ingredientSelect = document.querySelector("#ingredient-select");
 const pizzaList = document.querySelector("#pizza-list");
-
-INGREDIENTS.forEach((ingredient) => {
-  const option = document.createElement("option");
-  option.textContent = ingredient;
-  ingredientSelect.appendChild(option);
-});
-
-PIZZAS.forEach((pizza) => {
-  const li = document.createElement("li");
-  const button = document.createElement("button");
-  button.textContent = pizza.name;
-  li.appendChild(button);
-  pizzaList.appendChild(li);
-});
+const ingredientList = document.querySelector("#ingredient-list");
 
 const testIngredient = (string) => {
   results = [];
@@ -44,9 +31,44 @@ const updatePizzaList = () =>
     item.disabled = results[index];
   });
 
+const clearIngredientList = () => {
+  ingredientList.querySelectorAll("*").forEach((item) => item.remove());
+};
+
+const updateIngredientList = (index) => {
+  clearIngredientList();
+
+  PIZZAS[index].ingredients.forEach((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    ingredientList.appendChild(li);
+  });
+};
+
+INGREDIENTS.forEach((ingredient) => {
+  const option = document.createElement("option");
+  option.textContent = ingredient;
+  ingredientSelect.appendChild(option);
+});
+
+PIZZAS.forEach((pizza, index) => {
+  const li = document.createElement("li");
+  const button = document.createElement("button");
+
+  button.textContent = pizza.name;
+  button.dataset.id = index;
+  button.addEventListener("click", () => {
+    updateIngredientList(index);
+  });
+
+  li.appendChild(button);
+  pizzaList.appendChild(li);
+});
+
 document.addEventListener("load", updatePizzaList());
 
 ingredientSelect.addEventListener("change", () => {
+  clearIngredientList();
   testIngredient(ingredientSelect.value);
   updatePizzaList();
 });
