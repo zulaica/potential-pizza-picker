@@ -14,6 +14,23 @@ const filteredPizzas = PIZZAS.map(({ name, ingredients }) => {
   return { name, bloomFilter };
 });
 
+const ingredientSelect = document.querySelector("#ingredient-select");
+const pizzaList = document.querySelector("#pizza-list");
+
+INGREDIENTS.forEach((ingredient) => {
+  const option = document.createElement("option");
+  option.textContent = ingredient;
+  ingredientSelect.appendChild(option);
+});
+
+PIZZAS.forEach((pizza) => {
+  const li = document.createElement("li");
+  const button = document.createElement("button");
+  button.textContent = pizza.name;
+  li.appendChild(button);
+  pizzaList.appendChild(li);
+});
+
 const testIngredient = (string) => {
   results = [];
 
@@ -22,38 +39,14 @@ const testIngredient = (string) => {
   });
 };
 
-if (typeof document !== "undefined") {
-  const ingredientSelect = document.querySelector("#ingredient-select");
-  const pizzaList = document.querySelector("#pizza-list");
-
-  const updateMenu = () =>
-    document.querySelectorAll("button").forEach((item, index) => {
-      item.disabled = results[index];
-    });
-
-  INGREDIENTS.forEach((ingredient) => {
-    const option = document.createElement("option");
-    option.textContent = ingredient;
-    ingredientSelect.appendChild(option);
+const updatePizzaList = () =>
+  document.querySelectorAll("button").forEach((item, index) => {
+    item.disabled = results[index];
   });
 
-  PIZZAS.forEach((pizza) => {
-    const li = document.createElement("li");
-    const button = document.createElement("button");
-    button.textContent = pizza.name;
-    li.appendChild(button);
-    pizzaList.appendChild(li);
-  });
+document.addEventListener("load", updatePizzaList());
 
-  document.addEventListener("load", updateMenu());
-
-  ingredientSelect.addEventListener("change", () => {
-    testIngredient(ingredientSelect.value);
-    updateMenu();
-  });
-} else {
-  for (let i = 0; i < INGREDIENTS.length; i++) {
-    testIngredient(INGREDIENTS[i]);
-    console.info(INGREDIENTS[i], results);
-  }
-}
+ingredientSelect.addEventListener("change", () => {
+  testIngredient(ingredientSelect.value);
+  updatePizzaList();
+});
