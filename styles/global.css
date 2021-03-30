@@ -1,9 +1,10 @@
 :root {
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --green-dk: #2f5542;
-  --green-md: #406e57;
-  --green-lt: #aebea3;
+  --color-primary-dk: #2f5542;
+  --color-primary-lt: #406e57;
+  --color-secondary-dk: #648070;
+  --color-secondary-lt: #aebea3;
   --box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
 }
 
@@ -20,7 +21,7 @@ body {
 
 html {
   font-family: var(--font-family);
-  background: var(--green-dk);
+  background: var(--color-primary-dk);
 }
 
 body {
@@ -59,7 +60,7 @@ header h1::before {
   flex-direction: column;
   row-gap: 0.5625rem;
   color: #fff;
-  border-top: 2px solid var(--green-md);
+  border-top: 2px solid var(--color-primary-lt);
 }
 
 label {
@@ -72,7 +73,7 @@ label {
   grid-template-columns: 1fr 1fr;
   grid-area: pizzaMenu;
   padding: 0 1rem;
-  background: var(--green-md);
+  background: var(--color-primary-lt);
 }
 
 #pizza-list {
@@ -81,7 +82,7 @@ label {
   flex-direction: column;
   row-gap: 1rem;
   list-style: none;
-  border-top: 2px solid #648070;
+  border-top: 2px solid var(--color-secondary-dk);
 }
 
 h2 {
@@ -97,7 +98,7 @@ button,
 select {
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--green-dk);
+  color: var(--color-primary-dk);
   border-radius: 0.25rem;
 }
 
