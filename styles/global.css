@@ -58,13 +58,13 @@ header h1::before {
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  row-gap: 0.5625rem;
   color: #fff;
   border-top: 2px solid var(--color-primary-lt);
 }
 
 label {
-  padding: 1rem 0;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 #pizza-menu {
