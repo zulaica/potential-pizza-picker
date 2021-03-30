@@ -4,6 +4,7 @@
   --green-dk: #2f5542;
   --green-md: #406e57;
   --green-lt: #aebea3;
+  --box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
 }
 
 * {
@@ -86,12 +87,12 @@ select {
   font-size: 1rem;
   color: var(--green-dk);
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
 }
 
 select {
   padding: 0.5rem 1rem;
   border: 0;
+  box-shadow: var(--box-shadow);
 }
 
 button {
@@ -105,6 +106,7 @@ button:not([disabled]):hover,
 button:not([disabled]):active,
 button:not([disabled]):focus {
   transform: scale(1.03125);
+  box-shadow: var(--box-shadow);
 }
 
 button:disabled {
