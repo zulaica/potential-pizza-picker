@@ -8,13 +8,17 @@ const BloomFilter = class {
     this.vectorLength = vectorLength;
   }
 
-  add(string) {
-    indexesFromHashes(
+  _indexes(string) {
+    return indexesFromHashes(
       string,
       this.hashCount,
       this.offset,
       this.vectorLength
-    ).forEach((index) => {
+    );
+  }
+
+  add(string) {
+    this._indexes(string).forEach((index) => {
       this.bits[index] = 1;
     });
 
@@ -22,15 +26,8 @@ const BloomFilter = class {
   }
 
   test(string) {
-    const indexes = indexesFromHashes(
-      string,
-      this.hashCount,
-      this.offset,
-      this.vectorLength
-    );
-
-    for (let i = 0; i < indexes.length; i++) {
-      if (this.bits[indexes[i]] === 0) return false;
+    for (let i = 0; i < this._indexes(string).length; i++) {
+      if (this.bits[this._indexes(string)[i]] === 0) return false;
     }
 
     return true;
