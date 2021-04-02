@@ -141,17 +141,15 @@ button:not(:disabled):focus {
   box-shadow: var(--box-shadow);
 }
 
-input + label::after {
+button::after {
   content: "\2713";
-  display: inline-block;
-  position: absolute;
-  right: 1rem;
+  float: right;
   font-weight: bold;
   color: transparent;
   transition: color 0.125s ease-in-out;
 }
 
-input:checked + label::after {
+button.selected::after {
   color: var(--color-secondary-dk);
 }
 

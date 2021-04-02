@@ -32,9 +32,8 @@ const updatePizzaList = () =>
   });
 
 const clearSelectedPizza = () => {
-  document.querySelector("input:checked")
-    ? (document.querySelector("input:checked").checked = false)
-    : null;
+  document.querySelector(".selected") &&
+    document.querySelector(".selected").classList.remove("selected");
 };
 
 const clearToppingList = () => {
@@ -63,7 +62,9 @@ PIZZAS.forEach((pizza, index) => {
 
   button.textContent = pizza.name;
   button.addEventListener("click", () => {
+    clearSelectedPizza();
     updateToppingList(index);
+    button.classList.add("selected");
   });
 
   li.appendChild(button);
