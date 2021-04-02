@@ -134,9 +134,9 @@ button:disabled {
   opacity: 0.5;
 }
 
-button:not([disabled]):hover,
-button:not([disabled]):active,
-button:not([disabled]):focus {
+button:not(:disabled):hover,
+button:not(:disabled):active,
+button:not(:disabled):focus {
   transform: scale(1.03125);
   box-shadow: var(--box-shadow);
 }
