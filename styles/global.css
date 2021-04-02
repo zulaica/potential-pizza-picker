@@ -146,7 +146,7 @@ button::after {
   float: right;
   font-weight: bold;
   color: transparent;
-  transition: color 0.125s ease-in-out;
+  transition: color 0.0625s ease-in;
 }
 
 button.selected::after {
